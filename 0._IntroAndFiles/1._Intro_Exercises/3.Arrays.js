@@ -55,7 +55,8 @@ console.log("5. Diet", diet);
 // You really like your daily diet from last exercise. Copy it to a new array called dinnerTray so you can give it to a friend.  
 
 const dinnerTray = diet;
-console.log("6. dinnerTray", dinnerTray);
+const dinnerTrayTwo = [...numbers]
+console.log("6. dinnerTray", dinnerTrayTwo);
 
 // --------------------------------------
 // Exercise 7 - For loop
