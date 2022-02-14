@@ -30,6 +30,7 @@ const beers = [
     }
 ];
 
+
 app.get("/beers", (req, res) => {
     res.send(beers);
 });
@@ -39,10 +40,14 @@ app.get("/beers/:id",(req, res) => {
     res.send(beers.find(beer => beer.id === parseInt(req.params.id)));
 });
 
+
 app.post("/beers", (req, res) => {
-    beers.push(req.body);
-    res.send(req.body);
+    beerToAdd = req.body;
+    beerToAdd.id = Math.max(...beers.map(beer => beer.id))+1;
+    beers.push(beerToAdd);
+    res.send(beerToAdd);
 });
+
 
 app.put("/beers/:id", (req, res) => {
     const beerToReplace = req.body;
@@ -58,6 +63,7 @@ app.put("/beers/:id", (req, res) => {
     }
     
 });
+
 
 app.patch("/beers/:id", (req, res) => {
     const beerToPatch = req.body;
@@ -76,8 +82,8 @@ app.patch("/beers/:id", (req, res) => {
     } else {
         res.send({"message":"nothing to patch"});
     }
-    
 });
+
 
 app.delete("/beers/:id", (req, res) => {
     const indexToDelete = beers.findIndex(beer => beer.id === parseInt(req.params.id));
