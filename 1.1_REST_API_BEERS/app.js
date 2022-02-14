@@ -4,27 +4,27 @@ app.use(express.json());
 
 const beers = [
     {
-        "id": "1",
+        "id": 1,
         "name": "Carlsberg Pilsner",
         "alcohol": 4.6
     },
     {
-        "id": "2",
+        "id": 2,
         "name": "Tuborg Classic",
         "alcohol": 4.6
     },
     {
-        "id": "3",
+        "id": 3,
         "name": "Anarkist Brown Ale",
         "alcohol": 6.3
     },
     {
-        "id": "4",
+        "id": 4,
         "name": "Grimbergen Double Ambrée",
         "alcohol": 6.5
     },
     {
-        "id": "5",
+        "id": 5,
         "name": "Tuborg Julebryg",
         "alcohol": 5.6
     }
@@ -36,7 +36,7 @@ app.get("/beers", (req, res) => {
 
 
 app.get("/beers/:id",(req, res) => {
-    res.send(beers.find(beer => beer.id === req.params.id));
+    res.send(beers.filter(beer => beer.id === parseInt(req.params.id)));
 });
 
 app.post("/beers", (req, res) => {
@@ -46,9 +46,9 @@ app.post("/beers", (req, res) => {
 
 app.put("/beers/:id", (req, res) => {
     const beerToReplace = req.body;
-    beerToReplace.id = req.params.id;
+    beerToReplace.id = parseInt(req.params.id);
 
-    const indexToReplace = beers.findIndex(beer => beer.id === req.params.id);
+    const indexToReplace = beers.findIndex(beer => beer.id === parseInt(req.params.id));
     if (indexToReplace !== -1) {
         beers[indexToReplace] = beerToReplace;
 
@@ -61,19 +61,14 @@ app.put("/beers/:id", (req, res) => {
 
 app.patch("/beers/:id", (req, res) => {
     const beerToPatch = req.body;
-    beerToPatch.id = req.params.id;
+    beerToPatch.id = parseInt(req.params.id);
 
-
-    const indexToPatch = beers.findIndex(beer => beer.id === req.params.id);
+    const indexToPatch = beers.findIndex(beer => beer.id === parseInt(req.params.id));
+    
     if (indexToPatch !== -1) {
-        if (beers[indexToPatch].name !== beerToPatch.name) {
-            console.log("It's different name", beers[indexToPatch].name, beerToPatch.name)
-            beers[indexToPatch].name = beerToPatch.name;
-        }
-        if (beers[indexToPatch].alcohol !== beerToPatch.alcohol) {
-            console.log("It's different alcohol", beers[indexToPatch].alcohol, beerToPatch.alcohol)
-            beers[indexToPatch].alcohol = beerToPatch.alcohol;
-        } 
+        if (beers[indexToPatch].name !== beerToPatch.name) beers[indexToPatch].name = beerToPatch.name;
+        if (beers[indexToPatch].alcohol !== beerToPatch.alcohol)  beers[indexToPatch].alcohol = beerToPatch.alcohol;
+
         res.send(beers[indexToPatch]);
     } else {
         res.send({"message":"nothing to patch"});
@@ -82,7 +77,7 @@ app.patch("/beers/:id", (req, res) => {
 });
 
 app.delete("/beers/:id", (req, res) => {
-    const indexToDelete = beers.findIndex(beer => beer.id === req.params.id);
+    const indexToDelete = beers.findIndex(beer => beer.id === parseInt(req.params.id));
     if (indexToDelete !== -1) {
         beers.splice(indexToDelete, 1);
         res.send({"message":"deletíon succesful"})
