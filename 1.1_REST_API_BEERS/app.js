@@ -36,7 +36,7 @@ app.get("/beers", (req, res) => {
 
 
 app.get("/beers/:id",(req, res) => {
-    res.send(beers.filter(beer => beer.id === parseInt(req.params.id)));
+    res.send(beers.find(beer => beer.id === parseInt(req.params.id)));
 });
 
 app.post("/beers", (req, res) => {
@@ -52,7 +52,7 @@ app.put("/beers/:id", (req, res) => {
     if (indexToReplace !== -1) {
         beers[indexToReplace] = beerToReplace;
 
-        res.send(req.body);
+        res.send(beers[indexToReplace]);
     } else {
         res.send({"message":"nothing to replace"});
     }
@@ -64,11 +64,14 @@ app.patch("/beers/:id", (req, res) => {
     beerToPatch.id = parseInt(req.params.id);
 
     const indexToPatch = beers.findIndex(beer => beer.id === parseInt(req.params.id));
-    
-    if (indexToPatch !== -1) {
-        if (beers[indexToPatch].name !== beerToPatch.name) beers[indexToPatch].name = beerToPatch.name;
-        if (beers[indexToPatch].alcohol !== beerToPatch.alcohol)  beers[indexToPatch].alcohol = beerToPatch.alcohol;
 
+    if (indexToPatch !== -1) {
+        if (beerToPatch.name !== undefined) {
+            if (beers[indexToPatch].name !== beerToPatch.name) beers[indexToPatch].name = beerToPatch.name;
+        } 
+        if (beerToPatch.alcohol !== undefined) {
+            if (beers[indexToPatch].alcohol !== beerToPatch.alcohol)  beers[indexToPatch].alcohol = beerToPatch.alcohol;
+        }
         res.send(beers[indexToPatch]);
     } else {
         res.send({"message":"nothing to patch"});
