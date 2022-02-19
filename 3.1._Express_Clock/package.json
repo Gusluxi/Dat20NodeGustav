@@ -1,5 +1,26 @@
 {
+  "name": "node-express-clock",
+  "version": "1.0.0",
+  "description": "First Clock and Date Heroku.",
+  "main": "web.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "time",
+    "heroku"
+  ],
+  "author": "Gusluxi",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "16.x"
   }
+  
 }

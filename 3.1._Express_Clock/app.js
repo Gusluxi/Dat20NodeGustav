@@ -6,7 +6,7 @@ app.get("/clock", (req, res) => {
 })
 
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log("Site is running", 8080)
 })
        
