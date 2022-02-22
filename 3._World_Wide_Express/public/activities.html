@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bored=</title>
+</head>
+<body>
+    <h1>Suggest me something to do:</h1>
+    <div id="activity-div">
+        <p id="activity"></p>
+    </div>
+    <script>
+        fetch("https://www.boredapi.com/api/activity")
+        .then(response => response.json())
+        .then(res => {
+            const activityElement = document.getElementById("activity");
+            activityElement.innerText = res.activity;
+        });
+    </script>
+</body>
+</html>

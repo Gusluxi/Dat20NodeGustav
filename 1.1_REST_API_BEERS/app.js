@@ -42,7 +42,7 @@ app.get("/beers/:id",(req, res) => {
 
 
 app.post("/beers", (req, res) => {
-    beerToAdd = req.body;
+    const beerToAdd = req.body;
     beerToAdd.id = Math.max(...beers.map(beer => beer.id))+1;
     beers.push(beerToAdd);
     res.send(beerToAdd);

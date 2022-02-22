@@ -12,11 +12,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/welcome", (req, res) => {
-    res.send({"Welcome": "Client"})
+    res.send({greeting: `Hello there, ${1}`})
 })
 
 app.post("/mirror", (req, res) => {
     res.send(req.body);
 })
 
-app.listen(8080);
+app.listen(8080, (error) => {
+    console.log("Server is running on port", 8080);
+});
