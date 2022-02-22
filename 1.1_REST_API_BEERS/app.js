@@ -30,6 +30,8 @@ const beers = [
     }
 ];
 
+let CURRENT_ID = 5;
+
 
 app.get("/beers", (req, res) => {
     res.send(beers);
@@ -43,7 +45,8 @@ app.get("/beers/:id",(req, res) => {
 
 app.post("/beers", (req, res) => {
     const beerToAdd = req.body;
-    beerToAdd.id = Math.max(...beers.map(beer => beer.id))+1;
+    beerToAdd.id = ++CURRENT_ID;
+    //beerToAdd.id = Math.max(...beers.map(beer => beer.id))+1;
     beers.push(beerToAdd);
     res.send(beerToAdd);
 });
@@ -66,22 +69,36 @@ app.put("/beers/:id", (req, res) => {
 
 
 app.patch("/beers/:id", (req, res) => {
-    const beerToPatch = req.body;
-    beerToPatch.id = parseInt(req.params.id);
+    
 
     const indexToPatch = beers.findIndex(beer => beer.id === parseInt(req.params.id));
 
+    if(indexToPatch !== -1) {
+        const foundBeer = beers[indexToPatch];
+        const beerToPatch = req.body;
+        const updatedBeer = { ...foundBeer, ...beerToPatch, id: foundBeer.id};
+        beers[indexToPatch] = updatedBeer;
+
+        res.send({ data: updatedBeer })
+    } else {
+
+    }
+    
+
+
+    /*
     if (indexToPatch !== -1) {
         if (beerToPatch.name !== undefined) {
-            if (beers[indexToPatch].name !== beerToPatch.name) beers[indexToPatch].name = beerToPatch.name;
+            if (foundBeer.name !== beerToPatch.name) foundBeer.name = beerToPatch.name;
         } 
         if (beerToPatch.alcohol !== undefined) {
-            if (beers[indexToPatch].alcohol !== beerToPatch.alcohol)  beers[indexToPatch].alcohol = beerToPatch.alcohol;
+            if (foundBeer.alcohol !== beerToPatch.alcohol)  foundBeer.alcohol = beerToPatch.alcohol;
         }
         res.send(beers[indexToPatch]);
     } else {
         res.send({"message":"nothing to patch"});
     }
+    */
 });
 
 
