@@ -1,0 +1,45 @@
+#text-style {
+    font-style: italic;
+}
+
+#middle-section {
+    margin-top: 50px;;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#info-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.links {
+    margin-top: 15px;
+    text-decoration: none;
+    color: #164da0;
+    transition: 0.2s;
+    height: 15px;
+    
+}
+
+.links:hover {
+    text-decoration: underline;
+    font-size: 1.25rem;
+}
+
+#free-img {
+    height: 160px;
+    filter: invert(0.3) sepia(1) saturate(5) hue-rotate(175deg);
+    transition: 0.3s;
+    cursor: default;
+}
+#free-img:hover {
+    filter: invert(0.4) sepia(1) saturate(5) hue-rotate(175deg);
+    cursor: default;
+}
+
+#about-wrapper {
+    width: 300px;
+}

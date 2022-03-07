@@ -1,0 +1,96 @@
+<div id="global-wrapper">
+    <h1 class="center-text">Releveant <i>Code Snippets</i> for node.js</h1>
+
+    <div class="above-code-block">app.js - Standard JS setup for the app.js file (requires the express module)</div>
+    <div class="code-block">
+<pre class="numbers">
+1 
+2 
+3 
+4 
+5 
+6 
+7 </pre>
+<pre class="code">
+<a class="yellow">const</a> express = require(<a class="green">"express"</a>);
+<a class="yellow">const</a> app = express();
+
+app.<a class="blue">listen</a>(<a class="red">8080</a>, () => {
+    console.<a class="blue">log</a>(<a class="green">"server is running"</a>, <a class="red">8080</a>);
+});</pre>
+    </div>
+    
+    <div class="above-code-block">app.js - Basic get request method with a call back function</div>
+    <div class="code-block">
+<pre class="numbers">
+1 
+2 
+3 
+4 
+  
+1 
+2
+3 </pre>
+<pre class="code">
+app.<a class="blue">get</a>(<a class="green">"/awesomeEndpoint"</a>, (<a class="yellow">req</a>, <a class="yellow">res</a>) => {
+    res.<a class="blue">send</a>(<a class="red">{data: "Some Data"}</a>)
+});
+<a class="darkgrey">// Sends an empty json object</a>
+
+app.<a class="blue">use</a>(express.<a class="blue">json</a>());
+<a class="darkgrey">// Add ^this^ to enable json parsing</a>
+</pre>
+    </div>
+
+    <div class="above-code-block">package.json - add scripts to run with npm (see <a class="red" href="/commands">Terminal Commands</a>)</div>
+    <div class="code-block">
+<pre class="numbers">
+1 
+2 
+3 
+4 
+5
+6
+7 </pre>
+<pre class="code">
+{
+  <a class="red">"scripts"</a>: {
+    <a class="red">"start-dev"</a>: <a class="green">"nodemon app.js"</a>,
+    <a class="red">"start"</a>: <a class="green">"node app.js"</a>
+  },
+  <a class="darkgrey">... your other json packages ...</a>
+}
+      
+</pre>
+    </div>
+
+<h2 class="center-text">Neat functions</h2>
+    <div class="above-code-block">Random color hex code generator</div>
+    <div class="code-block">
+        <pre class="numbers">
+1 
+2 
+3 
+4 
+5 </pre>
+<pre class="code">
+<a class="yellow">function</a> getRandomColor() {
+    <a class="yellow">let</a> hex = (Math.<a class="blue">random</a>() * <a class="red">0xfffff</a> * <a class="red">1000000</a>).<a class="blue">toString</a>(<a class="red">16</a>);
+    <a class="red">return</a> <a class="green">'#'</a> + hex.<a class="blue">slice</a>(<a class="red">0</a>, <a class="red">6</a>);
+};
+</pre>
+    </div>
+
+    <div class="above-code-block">Random Integer generator</div>
+    <div class="code-block">
+        <pre class="numbers">
+1 
+2 
+3 
+4 </pre>
+<pre class="code">
+<a class="yellow">function</a> getRandomInteger(<a class="yellow">min</a>, <a class="yellow">max</a>) {
+    <a class="red">return</a> Math.<a class="blue">floor</a>((Math.<a class="blue">random</a>() * (max - min)) + min);
+};
+</pre>
+</div>

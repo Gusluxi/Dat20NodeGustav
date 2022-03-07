@@ -1,0 +1,14 @@
+img {
+    height: 150px;
+}
+
+#tools-wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.tool {
+    margin: 20px;
+    width: 220px;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "mandatory_one",
+  "version": "1.0.0",
+  "description": "The project uses Express and SSR while being split up in components",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "cross-env PORT=5000 nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SSR",
+    "EXPRESS"
+  ],
+  "author": "Gusluxi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

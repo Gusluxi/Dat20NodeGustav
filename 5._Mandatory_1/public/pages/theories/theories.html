@@ -1,0 +1,53 @@
+<div id="global-wrapper">
+    <h1 class="center-text">Ueful <i>Theories</i> and Coding Ideas</h1>
+    <div class="text-box">
+        <h3>Variable identifiers - <u>var</u> vs <u>const</u> vs <u>let</u></h3>
+        <p>
+            <code>var</code> - The scope of a var is either a Global Variable when declared outside of a function. 
+            but var can also be declared inside a functions scope and both updated and re-declared.
+            This can become an issue when you have multiple var's with the same name in the same function scope
+        </p>
+        <p>
+            <code>let</code> - The scope of a let is block scoped which is bound by curly brackets <code>{}</code>.
+            A let can be updated however it cannot be redefined.
+        </p>
+        <p>
+            <code>const</code> - The scope of a const is block scoped which is bound by curly brackets <code>{}</code>.
+            A const cannot be updated nor redefined.
+        </p>
+        <p>
+            <code>Hoisting</code> - The useful part of hoisting is when functions are declared after they are called. 
+            the variables const and let however wont be initialized with a default value when hoisted to the top, where
+            var will be initiallized with undefined.
+        </p>
+
+        <h3>Design of a REST API</h3>
+        <pre>REST API Memes
+HTTP    Endpoints       Description
+GET     "/memes"        Gets all memes
+GET     "/memes/{id}"   Gets meme by specific ID
+POST    "/memes"        Adds a new meme
+PUT     "/memes/{id}"   Replaces entire meme object by an id with an entire new meme object
+PATCH   "/memes/{id}"   Replaces part of a meme object by an id.
+DELETE  "/memes/{id}"   Deletes a meme by an ID</pre>
+            The REST API uses Full CRUD (Create, Read, Update, Delete).
+        <h3>Node.js</h3>
+        <p>
+            <code>Node.js</code> is a server side JavaScript runtime environment designed to build network applications 
+            by executing JavaScript code outside a web browser. Node.js uses npm as a package manager 
+            which is used to run scripts, publish projects, install packages and much more
+        </p>
+        <h3>Server Side Rendering</h3>
+        <p>
+            <code>Server Side Rendering</code> also known as SSR is useful to render full HTML for a page for imporved performance.
+            This also helps to avoid CORS-errors with data fetching with client side rendering.
+            <b>Useful for: Improved performance, Faster load times & better social sharing</b>
+        </p>
+        <h3>Clean Code and Code conventions</h3>
+        <p>
+            <code>Consistency</code> The most fundamental part of Clean code is to establish consitancy.
+            using blankspaces in the same way across all code semicolon constant after all lines of code or not using it at all.
+        </p>
+    </div>
+    
+</div>
