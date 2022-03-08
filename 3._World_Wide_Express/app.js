@@ -3,7 +3,10 @@ const app = express();
 const fetch = require("node-fetch")
 app.use(express.static("public"));
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d0f7bfda05fe9c91fbd18b8f984f900f4f23921
 const { calculateAmountOfCoolDinosaurs } = require("./dinosaurs/dinosaurs.js");
 console.log("number of dinosaurs:", calculateAmountOfCoolDinosaurs());
 

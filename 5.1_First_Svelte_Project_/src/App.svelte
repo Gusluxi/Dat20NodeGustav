@@ -1,10 +1,22 @@
 <script>
+import Sun from "./components/Sun/Sun.svelte";
+import Profile from "./pages/Profile/Profile.svelte";
+import Tree from "./pages/Tree/Tree.svelte";
+
 	export let name;
+
+
 </script>
 
 <main>
+	
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<Sun />
+	<Tree />
+	<Profile name={"Frederik"}
+	favoriteColor={"Brown"}/>
+	<Profile name={"Gustav"}
+	favoriteColor={"Orange"}/>
 </main>
 
 <style>

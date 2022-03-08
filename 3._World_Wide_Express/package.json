@@ -6,8 +6,12 @@
     "start": "node app.js"
   },
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.2",
     "node-fetch": "2.6.7"
+=======
+    "express": "^4.17.2"
+>>>>>>> 2d0f7bfda05fe9c91fbd18b8f984f900f4f23921
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
