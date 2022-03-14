@@ -6,18 +6,16 @@ import Reactivity from "./pages/Reactivity/Reactivity.svelte";
 
 let randomString = "HTML inside some <b>HTML?</b>"
 let name;
+let count = 100;
 
 function handleNameChange() {
 	name = document.getElementById("user-name").value;
 }
 	
-let count = 100;
-
 function uselessButtonHandler() {
 	document.getElementById("main").style.fontSize = count +"%";
 	count += 25;
 }
-
 </script>
 
 <main id="main">
@@ -34,10 +32,8 @@ function uselessButtonHandler() {
 	/>
 
 	<p>{@html randomString}</p>
-
 	<button on:click = {uselessButtonHandler}>Useless Button?</button>
 	
-
 	<Reactivity />
 	<h2>Logic</h2>
 	<Logic />
