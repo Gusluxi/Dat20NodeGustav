@@ -1,8 +1,6 @@
 <script>
 import PeopleTable from "./componments/Table/PeopleTable.svelte";
 
-	export let name;
-
 </script>
 
 <main>
