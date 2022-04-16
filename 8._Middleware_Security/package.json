@@ -1,0 +1,32 @@
+{
+  "name": "security",
+  "version": "1.0.0",
+  "description": "Middleware Security",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "Security Script",
+    "start-dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gusluxi/Dat20NodeGustav.git"
+  },
+  "keywords": [
+    "security",
+    "middleware-security"
+  ],
+  "author": "Gusluxi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gusluxi/Dat20NodeGustav/issues"
+  },
+  "homepage": "https://github.com/Gusluxi/Dat20NodeGustav#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "express-session": "^1.17.2",
+    "helmet": "^5.0.2"
+  }
+}

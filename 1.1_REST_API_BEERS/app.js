@@ -39,13 +39,14 @@ app.get("/beers", (req, res) => {
 
 
 app.get("/beers/:id",(req, res) => {
-    res.send(beers.find(beer => beer.id === parseInt(req.params.id)));
+    const foundBeer = beers.find(beer => beer.id === Number(req.params.id));
+    foundBeer ? res.send({ data: foundBeer }) : res.status(204).send({});
 });
 
 
 app.post("/beers", (req, res) => {
     const beerToAdd = req.body;
-    beerToAdd.id = ++CURRENT_ID;
+    beerToAdd.id = ++CURRENT_ID; //Delete me if auto increment
     //beerToAdd.id = Math.max(...beers.map(beer => beer.id))+1;
     beers.push(beerToAdd);
     res.send(beerToAdd);
@@ -56,7 +57,7 @@ app.put("/beers/:id", (req, res) => {
     const beerToReplace = req.body;
     beerToReplace.id = parseInt(req.params.id);
 
-    const indexToReplace = beers.findIndex(beer => beer.id === parseInt(req.params.id));
+    const indexToReplace = beers.findIndex(beer => beer.id === Number(req.params.id));
     if (indexToReplace !== -1) {
         beers[indexToReplace] = beerToReplace;
 
@@ -71,7 +72,7 @@ app.put("/beers/:id", (req, res) => {
 app.patch("/beers/:id", (req, res) => {
     
 
-    const indexToPatch = beers.findIndex(beer => beer.id === parseInt(req.params.id));
+    const indexToPatch = beers.findIndex(beer => beer.id === Number(req.params.id));
 
     if(indexToPatch !== -1) {
         const foundBeer = beers[indexToPatch];
@@ -81,7 +82,7 @@ app.patch("/beers/:id", (req, res) => {
 
         res.send({ data: updatedBeer })
     } else {
-
+        res.status(404).send({});
     }
     
 
@@ -103,12 +104,12 @@ app.patch("/beers/:id", (req, res) => {
 
 
 app.delete("/beers/:id", (req, res) => {
-    const indexToDelete = beers.findIndex(beer => beer.id === parseInt(req.params.id));
+    const indexToDelete = beers.findIndex(beer => beer.id === Number(req.params.id));
     if (indexToDelete !== -1) {
         beers.splice(indexToDelete, 1);
         res.send({"message":"deletíon succesful"})
     } else {
-        res.send({"message":"nothing to delete"});
+        res.status(404).send({});
     }
 });
 
